@@ -2,7 +2,7 @@ language: r
 latex: false
 
 install:
-- R -q -e 'install.packages("remotes"); remotes::install_github("ropenscilabs/tic")'
+- R -q -e 'install.packages(c("curl", "remotes")); remotes::install_github("ropenscilabs/tic")'
 
 script:
 - R -q -e 'name <- paste0("ticpkg-", gsub("^([^.]*)[.]([^.]*)[.].*$", "\\1-\\2", getRversion()), ".tar.xz"); print(name); exit <- system(paste0("tar caf ", name, " /home/travis/R/Library")); stopifnot(exit == 0)'
