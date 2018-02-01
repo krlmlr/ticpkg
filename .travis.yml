@@ -3,7 +3,7 @@ cache: packages
 latex: false
 
 install:
-- R -q -e 'install.packages("remotes"); update.packages(ask = FALSE); remotes::install_packages("tic")'
+- R -q -e 'install.packages("remotes"); update.packages(ask = FALSE); remotes::install_github("ropenscilabs/tic")'
 
 script:
 - tar cvf ticpkg.tar.gz $(R -q -e '.libPaths()[[1]]')
