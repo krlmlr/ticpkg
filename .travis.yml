@@ -1,5 +1,6 @@
 language: r
 cache: packages
+latex: false
 script:
 - R -q -e 'install.packages("remotes"); update.packages(ask = FALSE); remotes::install_packages("tic")'
 - tar cvf ticpkg.tar.gz $(R -q -e '.libPaths()[[1]]')
