@@ -7,7 +7,7 @@ install:
 
 script:
 - tar caf ticpkg.tar.xz /home/travis/R/Library
-- R -q -e 'sessionInfo()'
+- R -q -e 'installed.packages()[, "Version", drop = FALSE]'
 - ls -hl
 
 #env
