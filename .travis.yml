@@ -5,7 +5,7 @@ install:
 - R -q -e 'install.packages(c("curl", "remotes")); remotes::install_github("ropenscilabs/tic")'
 
 script:
-- R -q -e 'name <- paste0("ticpkg-", gsub("^([^.]*)[.]([^.]*)[.].*$", "\\1-\\2", getRversion()), ".tar.xz"); print(name); exit <- system(paste0("tar caf ", name, " /home/travis/R/Library")); stopifnot(exit == 0)'
+- R -q -e 'setwd("/usr/local/lib/R"); name <- paste0("ticpkg-", gsub("^([^.]*)[.]([^.]*)[.].*$", "\\1-\\2", getRversion()), ".tar.xz"); print(name); exit <- system(paste0("tar caf ", name, " site-library")); stopifnot(exit == 0)'
 - R -q -e 'installed.packages()[, "Version", drop = FALSE]'
 - ls -hl
 
