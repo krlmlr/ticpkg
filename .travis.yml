@@ -6,7 +6,7 @@ install:
 - R -q -e 'install.packages("remotes"); update.packages(ask = FALSE); remotes::install_github("ropenscilabs/tic")'
 
 script:
-- tar cvf ticpkg.tar.xz /home/travis/R/Library
+- tar cavf ticpkg.tar.xz /home/travis/R/Library
 - ls -hl
 
 #env
