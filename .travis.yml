@@ -6,7 +6,7 @@ install:
 - R -q -e 'install.packages("remotes"); update.packages(ask = FALSE); remotes::install_github("ropenscilabs/tic")'
 
 script:
-- tar caf ticpkg.tar.xz /home/travis/R/Library
+- R -q -e 'name <- paste0("ticpkg-", gsub("^([^.]*)[.]([^.]*)[.].*$", "\\1-\\2", getRversion()), ".tar.xz"); print(name); exit <- system(paste0("tar caf ", name, " /home/travis/R/Library")); stopifnot(exit == 0)'
 - R -q -e 'installed.packages()[, "Version", drop = FALSE]'
 - ls -hl
 
@@ -14,3 +14,10 @@ script:
 env:
   global:
   - MAKEFLAGS="-j 2"
+
+r:
+- 3.1
+- 3.2
+- oldrel
+- release
+- devel
